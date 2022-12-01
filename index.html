@@ -47,7 +47,7 @@
             left: 50%;
             border: 10px dashed ${randomColor()};
             border-radius: 50%;
-            animation:spin 2s linear infinite;
+            animation:spin 10s ease infinite;
             `
         }
 
@@ -57,15 +57,16 @@
             // shell.innerHTML = eye.outerHTML
             eye.style = styleThing()
             ring()[ring().length - 1].innerHTML = ring()[ring().length - 1].outerHTML
-            eye.style = styleThing()
+            
+            ring()[ring().length - 1].style = styleThing()
             // eye.innerHTML = eye.outerHTML
 
             console.log(ring())
-
+            
             // Create I dont know what
-            // setInterval(() => {
-            //     winFunction()
-            // }, 1500)
+            setInterval(() => {
+                winFunction()
+            }, 1500)
         }
 
         // When window loads
@@ -75,7 +76,7 @@
 
         // Run every 1.5 seconds
         setInterval(() => {
-            // winFunction()
+            winFunction()
         }, 1000)
     </script>
 </body>
