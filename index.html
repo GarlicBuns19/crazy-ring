@@ -22,10 +22,12 @@
 
 <body>
     <div id="eye"></div>
+    <div id="shell"></div>
 
     <script>
+        let shell = document.getElementById("shell")
         let eye = document.getElementById("eye")
-        let ring = document.querySelectorAll("#eye")
+        let ring = document.querySelectorAll("#shell")
         let randomColor = () => {
             let letters = "0123456789ABCDEF";
             let color = "#";
@@ -37,6 +39,8 @@
 
         // The main function
         let winFunction = () => {
+            // Pending on which is un commited it give different effect
+            shell.innerHTML = eye.outerHTML
             eye.innerHTML = eye.outerHTML
 
             eye.style = `
@@ -52,9 +56,9 @@
             console.log(ring)
 
             // Create I dont know what
-            setInterval(() => {
-                winFunction()
-            }, 1500)
+            // setInterval(() => {
+            //     winFunction()
+            // }, 1500)
         }
 
         // When window loads
@@ -64,7 +68,7 @@
 
         // Run every 1.5 seconds
         setInterval(() => {
-            winFunction()
+            // winFunction()
         }, 1500)
     </script>
 </body>
