@@ -27,7 +27,8 @@
     <script>
         let shell = document.getElementById("shell")
         let eye = document.getElementById("eye")
-        let ring = document.querySelectorAll("#shell")
+        let ring = () => document.querySelectorAll("#eye")
+
         let randomColor = () => {
             let letters = "0123456789ABCDEF";
             let color = "#";
@@ -37,15 +38,10 @@
             return color;
         }
 
-        // The main function
-        let winFunction = () => {
-            // Pending on which is un commited it give different effect
-            shell.innerHTML = eye.outerHTML
-            eye.innerHTML = eye.outerHTML
-
-            eye.style = `
+        let styleThing = () => {
+            return `
             width: 20px;
-            height: 20px;
+            aspect-ratio: 1;
             position:absolute;
             top: 50%;
             left: 50%;
@@ -53,7 +49,18 @@
             border-radius: 50%;
             animation:spin 2s linear infinite;
             `
-            console.log(ring)
+        }
+
+        // The main function
+        let winFunction = () => {
+            // Pending on which is un commited it give different effect
+            // shell.innerHTML = eye.outerHTML
+            eye.style = styleThing()
+            ring()[ring().length - 1].innerHTML = ring()[ring().length - 1].outerHTML
+            eye.style = styleThing()
+            // eye.innerHTML = eye.outerHTML
+
+            console.log(ring())
 
             // Create I dont know what
             // setInterval(() => {
@@ -69,7 +76,7 @@
         // Run every 1.5 seconds
         setInterval(() => {
             // winFunction()
-        }, 1500)
+        }, 1000)
     </script>
 </body>
 
